@@ -1,0 +1,124 @@
+//Câu 5
+using System;
+
+namespace XepLoaiHocSinh
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double DTB;
+
+            Console.Write("Nhap diem trung binh cua hoc sinh: ");
+            DTB = Convert.ToDouble(Console.ReadLine());
+
+            if (DTB >= 9.0)
+            {
+                Console.WriteLine("Xuat sac");
+            }
+            else if (DTB >= 8.0)
+            {
+                Console.WriteLine("Gioi");
+            }
+            else if (DTB >= 6.5)
+            {
+                Console.WriteLine("Kha");
+            }
+            else if (DTB >= 5.0)
+            {
+                Console.WriteLine("Trung binh");
+            }
+            else if (DTB >= 3.5)
+            {
+                Console.WriteLine("Yeu");
+            }
+            else
+            {
+                Console.WriteLine("Kem");
+            }
+        }
+    }
+}
+//Câu 6
+using System;
+
+namespace DoiTienMenhGia
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] menhGia = { 500000, 200000, 100000, 50000 };
+            int soTien;
+            int soLuong;
+
+            Console.Write("Nhap so tien (la boi so cua 50.000): ");
+            soTien = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("So tien " + soTien + " co the doi thanh:");
+
+            for (int i = 0; i < menhGia.Length; i++)
+            {
+                soLuong = soTien / menhGia[i];
+                soTien %= menhGia[i];
+                if (soLuong > 0)
+                {
+                    Console.WriteLine(soLuong + " to " + menhGia[i]);
+                }
+            }
+        }
+    }
+}
+Câu 7
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BT7_TinhTienDien
+{
+    using System;
+
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Nhập chỉ số điện p: ");
+            int p = Convert.ToInt32(Console.ReadLine());
+
+            double t = 0;
+
+            if (p <= 50)
+            {
+                t = p * 1484;
+            }
+            else if (p <= 100)
+            {
+                t = 50 * 1484 + (p - 50) * 1533;
+            }
+            else if (p <= 200)
+            {
+                t = 50 * 1484 + 50 * 1533 + (p - 100) * 1786;
+            }
+            else if (p <= 300)
+            {
+                t = 50 * 1484 + 50 * 1533 + 100 * 1786 + (p - 200) * 2242;
+            }
+            else if (p <= 400)
+            {
+                t = 50 * 1484 + 50 * 1533 + 100 * 1786 + 100 * 2242 + (p - 300) * 2503;
+            }
+            else
+            {
+                t = 50 * 1484 + 50 * 1533 + 100 * 1786 + 100 * 2242 + 100 * 2503 + (p - 400) * 2587;
+            }
+
+            double vat = 0.1 * t;
+            double tongTienDien = t + vat;
+
+            Console.WriteLine($"Tổng tiền điện: {tongTienDien} VND");
+        }
+    }
+
+}
